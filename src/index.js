@@ -121,5 +121,5 @@ app.on('activate', () => {
 });
 
 
-console.log(getInstalledBrowsers());
+//console.log(getInstalledBrowsers());
 
