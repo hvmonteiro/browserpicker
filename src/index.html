@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Browser Picker</title>
+    <style>
+      #browser-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 10px;
+      }
+
+      .browser-item {
+        background-color: #eee;
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .browser-item:hover {
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Installed browsers:</h1>
+    <div id="browser-list"></div>
+
+    <script>
+      const { ipcRenderer } = require("electron");
+
+      ipcRenderer.on("installed-browsers", (event, browsers) => {
+        const browserList = document.getElementById("browser-list");
+
+        browsers.forEach((browser) => {
+          const browserItem = document.createElement("div");
+          browserItem.classList.add("browser-item");
+          browserItem.textContent = `${browser.browserName} (${browser.browserPath})`;
+          browserItem.addEventListener("click", () => {
+            ipcRenderer.send("execute-browser", browser.browserPath);
+          });
+          browserList.appendChild(browserItem);
+        });
+      });
+
+      ipcRenderer.send("get-installed-browsers");
+    </script>
+  </body>
+</html>

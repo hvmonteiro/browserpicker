@@ -1,0 +1,37 @@
+{
+  "name": "browserpicker",
+  "version": "1.0.0",
+  "description": "Choose which internet browser you prefer to use for opening your URLs.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "set APP_DEV=true && electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hvmonteiro/browserpicker.git"
+  },
+  "keywords": [
+    "internet",
+    "browser",
+    "select",
+    "pick",
+    "picker",
+    "open",
+    "url",
+    "website",
+    "address"
+  ],
+  "author": "Hugo V. Monteiro <hugo@hugovmonteiro.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hvmonteiro/browserpicker/issues"
+  },
+  "homepage": "https://github.com/hvmonteiro/browserpicker#readme",
+  "devDependencies": {
+    "electron": "^30.0.1"
+  },
+  "dependencies": {
+    "registry-js": "^1.16.0"
+  }
+}
